@@ -2,8 +2,8 @@
   "name": "Controle Diário",
   "short_name": "Controle Diário",
   "description": "Controle diário para motoristas de aplicativo",
-  "start_url": "./index.html",
-  "scope": "./",
+  "start_url": "/Controle-Diario-Motorista/",
+  "scope": "/Controle-Diario-Motorista/",
   "display": "standalone",
   "background_color": "#1f2933",
   "theme_color": "#1f2933",
@@ -22,6 +22,5 @@
       "purpose": "any maskable"
     }
 ]
-
-
 }
+
