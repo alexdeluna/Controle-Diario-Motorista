@@ -1,4 +1,4 @@
-const CACHE_NAME = 'controle-diario-v1';
+const CACHE_NAME = 'Controle-Diario-Motorista';
 
 const FILES_TO_CACHE = [
   './',
@@ -10,12 +10,17 @@ const FILES_TO_CACHE = [
 
 // Instala
 self.addEventListener('install', event => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(FILES_TO_CACHE);
+      return cache.addAll([
+        './',
+        './index.html',
+        './app.js',
+        './manifest.json'
+      ]);
     })
   );
-  self.skipWaiting();
 });
 
 // Ativa
@@ -24,7 +29,7 @@ self.addEventListener('activate', event => {
     caches.keys().then(keys =>
       Promise.all(
         keys.map(key => {
-          if (key !== CACHE_NAME) {
+          if (key !== CACHE_NAME) { // Limpa caches de versões anteriores
             return caches.delete(key);
           }
         })
